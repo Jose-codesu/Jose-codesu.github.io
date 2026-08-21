@@ -1,0 +1,197 @@
+@import 'tailwindcss';
+
+/* next-themes writes `class="dark"` on <html>, so the dark variant keys off that. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ---- Type ------------------------------------------------------------ */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
+
+  /* ---- Motion ----------------------------------------------------------
+     Built-in CSS easings are too weak to read as intentional. These are the
+     stronger variants: ease-out for anything entering, ease-in-out for things
+     moving on screen. `ease-in` is deliberately absent — it delays the first
+     frame, which is exactly when the eye is watching.                     */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* ---- Color ----------------------------------------------------------- */
+  --color-bg: oklch(0.985 0.003 85);
+  --color-panel: oklch(1 0 0);
+  --color-fg: oklch(0.21 0.008 65);
+  --color-muted: oklch(0.53 0.012 70);
+  --color-faint: oklch(0.68 0.01 70);
+  --color-line: oklch(0.21 0.008 65 / 0.12);
+  --color-line-strong: oklch(0.21 0.008 65 / 0.22);
+  --color-accent: oklch(0.58 0.16 42);
+  --color-accent-soft: oklch(0.58 0.16 42 / 0.1);
+  --color-good: oklch(0.55 0.11 155);
+}
+
+.dark {
+  --color-bg: oklch(0.16 0.006 75);
+  --color-panel: oklch(0.196 0.007 75);
+  --color-fg: oklch(0.955 0.004 85);
+  --color-muted: oklch(0.7 0.012 80);
+  --color-faint: oklch(0.55 0.012 80);
+  --color-line: oklch(0.955 0.004 85 / 0.14);
+  --color-line-strong: oklch(0.955 0.004 85 / 0.26);
+  --color-accent: oklch(0.75 0.15 55);
+  --color-accent-soft: oklch(0.75 0.15 55 / 0.14);
+  --color-good: oklch(0.75 0.12 155);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* The sticky header would otherwise cover anchored headings. */
+    scroll-padding-top: 6rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Chrome/Safari paint a white sliver behind the fixed header on rubber-band
+     scroll; matching the page background hides it. */
+  html,
+  body {
+    background-color: var(--color-bg);
+  }
+}
+
+@layer components {
+  /* Pressable surfaces confirm they heard the user. 160ms, subtle scale. */
+  .pressable {
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .pressable:active {
+    transform: scale(0.97);
+  }
+
+  .card-press:active {
+    transform: scale(0.995);
+  }
+
+  /* Small caps metadata label used across sections. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--color-line-strong);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 150ms ease, color 150ms ease;
+  }
+
+  .link-underline:hover {
+    text-decoration-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
+
+/* ---- Scroll reveal ------------------------------------------------------
+   A CSS animation, not a JS one: it runs off the main thread, so it stays
+   smooth while the page is still hydrating. The observer only flips an
+   attribute. 8px of travel — enough to read as motion, not as a slide.    */
+[data-reveal] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    transform: translateY(8px);
+  }
+
+  [data-reveal][data-visible='true'] {
+    animation: reveal 420ms var(--ease-out) forwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduced motion means gentler, not none: keep the fade, drop the travel. */
+  [data-reveal][data-visible='true'] {
+    animation: reveal-fade 240ms ease forwards;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hover effects are gated: touch devices fire :hover on tap, which leaves the
+   effect stuck on after the finger lifts. */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift {
+    transition: border-color 180ms ease, background-color 180ms ease;
+  }
+
+  .hover-arrow svg {
+    transition: transform 180ms var(--ease-out);
+  }
+
+  .hover-arrow:hover svg {
+    transform: translateX(2px);
+  }
+}
+
+/* Label swaps (copy button, toggles): the blur bridges the two words so the eye
+   reads one object changing rather than two objects overlapping. */
+@keyframes label-swap {
+  from {
+    opacity: 0.35;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
