@@ -223,6 +223,25 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           </Reveal>
         )}
 
+        {project.demo && (
+          <Reveal>
+            <Link
+              href={project.demo.href}
+              className="hover-lift hover-arrow card-press pressable block rounded-2xl border border-line bg-panel px-6 py-8 hover:border-line-strong sm:px-10"
+            >
+              <p className="eyebrow">Try it yourself</p>
+              <p className="mt-3 font-display text-2xl tracking-tight">{project.demo.label}</p>
+              <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted">
+                {project.demo.body}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-[13px]">
+                Open the demo
+                <ArrowRight />
+              </span>
+            </Link>
+          </Reveal>
+        )}
+
         <Reveal className="border-t border-line pt-8">
           <p className="eyebrow">Full stack</p>
           <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">

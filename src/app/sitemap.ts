@@ -7,7 +7,7 @@ import { publishedNotes } from '@/content/notes';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = ['', '/work', '/credentials', '/about', '/resume'];
+  const base = ['', '/work', '/lab', '/lab/eval', '/lab/clone', '/credentials', '/about', '/resume'];
   if (publishedNotes.length > 0) base.push('/notes');
 
   const routes = base.map((path) => ({

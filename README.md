@@ -62,6 +62,22 @@ src/content/
 El `alt` no es opcional: describe **qué muestra la pantalla**, no que es una
 captura. Es lo que lee alguien con lector de pantalla y lo que indexa Google.
 
+### Agregar una demo al Lab
+
+`/lab` es donde el visitante **corre** tu trabajo en vez de leer sobre él. Hoy
+hay dos:
+
+- `/lab/eval` — el banco de evals de Savor. Los datos viven en
+  `src/content/data/savor-evals.json` (16 fotos × 13 corridas, extraídos de
+  `Savor-App/scripts/eval/runs/`). Para actualizarlo, vuelve a generar ese JSON
+  con las corridas nuevas — el mismo formato: `photos[]` con `truth` y
+  `confidence`, `runs[]` con `estimates` por foto.
+- `/lab/clone` — el detector de clones de Notewell. `src/lib/clone-detect.ts`
+  es una copia literal de `notewell/src/lib/similarity.ts`; si cambias el
+  algoritmo allá, cópialo aquí (y el comentario lo dice).
+
+Un proyecto se enlaza a su demo con el campo `demo` en `projects.ts`.
+
 ### Escribir una nota
 
 `src/content/notes.ts`. Cada nota es un objeto con `slug`, `title`, `date`,
@@ -131,6 +147,11 @@ npm run dev        # http://localhost:3000
   usan (`src/lib/evidence.ts`). Se deriva de `projects.ts`, no se mantiene a
   mano — si un skill no tiene proyecto que lo respalde, se nota.
 - **RSS** en `/feed.xml` con las notas y el log.
+- **Gráficos**: la paleta de series (`--series-a` / `--series-b` en
+  `globals.css`) pasó las seis validaciones del skill `dataviz` en claro y en
+  oscuro — banda de luminosidad, piso de croma, separación para daltonismo
+  (ΔE 17 protan), separación normal y contraste 3:1. Si cambias esos colores,
+  vuelve a correr el validador antes de subirlos.
 - **Deploy**: `.github/workflows/deploy.yml` corre typecheck, lint, build y
   `npm run check` en cada push a `main`, y publica `./out` en Pages. El check
   falla si una página exporta vacía o si falta una imagen referenciada.

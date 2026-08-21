@@ -29,6 +29,7 @@
   --color-accent: oklch(0.58 0.16 42);
   --color-accent-soft: oklch(0.58 0.16 42 / 0.1);
   --color-good: oklch(0.55 0.11 155);
+  --color-danger: oklch(0.52 0.19 25);
 }
 
 .dark {
@@ -42,6 +43,7 @@
   --color-accent: oklch(0.75 0.15 55);
   --color-accent-soft: oklch(0.75 0.15 55 / 0.14);
   --color-good: oklch(0.75 0.12 155);
+  --color-danger: oklch(0.72 0.15 25);
 }
 
 @layer base {
@@ -294,4 +296,20 @@ body:has(dialog.lightbox[open]) {
     transform: none !important;
     animation: none !important;
   }
+}
+
+/* ---- Chart series -------------------------------------------------------
+   Two categorical hues, validated with the dataviz palette checker against
+   both surfaces: lightness band, chroma floor, CVD separation (ΔE 17 protan),
+   normal-vision separation and 3:1 contrast all pass in light and dark.
+   Colour follows the series, never its rank — selecting a different run does
+   not repaint the one still on screen.                                     */
+:root {
+  --series-a: #c5521c;
+  --series-b: #00819b;
+}
+
+.dark {
+  --series-a: #d97230;
+  --series-b: #009ab4;
 }

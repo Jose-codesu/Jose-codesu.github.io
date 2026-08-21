@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { nav, site } from '@/content/site';
 import { visibleProjects } from '@/content/projects';
+import { publishedNotes } from '@/content/notes';
 
 /**
  * ⌘K palette.
@@ -104,6 +105,29 @@ export function CommandPalette() {
                 <span className="ml-auto truncate pl-4 text-[12px] text-faint">{project.tagline}</span>
               </Item>
             ))}
+          </Group>
+
+          {publishedNotes.length > 0 && (
+            <Group heading="Notes">
+              {publishedNotes.map((note) => (
+                <Item
+                  key={note.slug}
+                  value={`${note.title} ${note.summary} ${note.tags?.join(' ') ?? ''}`}
+                  onSelect={() => run(() => router.push(`/notes/${note.slug}`))}
+                >
+                  <span className="truncate">{note.title}</span>
+                </Item>
+              ))}
+            </Group>
+          )}
+
+          <Group heading="Try it">
+            <Item onSelect={() => run(() => router.push('/lab/eval'))}>
+              Eval bank explorer (Savor)
+            </Item>
+            <Item onSelect={() => run(() => router.push('/lab/clone'))}>
+              Clone detector (Notewell)
+            </Item>
           </Group>
 
           <Group heading="Actions">

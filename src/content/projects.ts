@@ -55,6 +55,11 @@ export const projects: Project[] = [
       'Keychain',
       'GitHub Actions',
     ],
+    demo: {
+      href: '/lab/eval',
+      label: 'Explore the eval bank',
+      body: 'Sixteen photos with known calories and thirteen runs across models and prompt versions — the measurements behind these estimates, with the filter that changed what the headline number meant.',
+    },
     metrics: [
       { value: '0', label: 'third-party Swift packages' },
       { value: '3', label: 'model & data providers orchestrated' },
@@ -276,6 +281,11 @@ export const projects: Project[] = [
       'Vitest',
       'Playwright',
     ],
+    demo: {
+      href: '/lab/clone',
+      label: 'Run the clone detector',
+      body: 'The production similarity function, executing in your browser on two session notes you can edit — no server, no model, no API key.',
+    },
     metrics: [
       { value: '$77.8M', label: 'improper payments in the audit that framed the product' },
       { value: '100/100', label: 'sampled patient-months with deficient notes' },

@@ -61,6 +61,8 @@ export interface Project {
   media?: Media[];
   /** One line under the gallery for context a caption cannot carry. */
   mediaNote?: string;
+  /** An interactive demo in /lab that belongs to this project. */
+  demo?: { href: string; label: string; body: string };
   platform: string;
   stack: string[];
   links?: ProjectLink[];

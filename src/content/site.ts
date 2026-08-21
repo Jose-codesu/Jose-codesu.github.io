@@ -62,6 +62,7 @@ import { publishedNotes } from './notes';
 /** Notes joins the nav the moment the first one is published — see notes.ts. */
 export const nav = [
   { label: 'Work', href: '/work' },
+  { label: 'Lab', href: '/lab' },
   ...(publishedNotes.length > 0 ? [{ label: 'Notes', href: '/notes' }] : []),
   { label: 'Credentials', href: '/credentials' },
   { label: 'About', href: '/about' },

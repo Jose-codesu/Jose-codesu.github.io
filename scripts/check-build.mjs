@@ -34,6 +34,9 @@ const PAGES = [
   ['resume/index.html', 'Selected work'],
   ['404.html', 'does not exist'],
   ['notes/index.html', 'Things worth writing down'],
+  ['lab/index.html', 'run it'],
+  ['lab/eval/index.html', 'Sixteen photos'],
+  ['lab/clone/index.html', 'Jaccard similarity'],
 ];
 
 const FILES = [

@@ -1,0 +1,1053 @@
+{
+ "meta": {
+  "source": "Savor eval bank \u2014 scripts/eval",
+  "photos": 16,
+  "note": "Personal 16-photo bench measuring one product, not a general model ranking. Runs with fewer than 12 completed photos are excluded.",
+  "dropped_runs": 1
+ },
+ "photos": [
+  {
+   "id": "001",
+   "label": "Big Mac",
+   "group": "brand",
+   "confidence": "exact",
+   "truth": 590
+  },
+  {
+   "id": "002",
+   "label": "Whopper",
+   "group": "brand",
+   "confidence": "exact",
+   "truth": 670
+  },
+  {
+   "id": "003",
+   "label": "Medium fries",
+   "group": "brand",
+   "confidence": "exact",
+   "truth": 320
+  },
+  {
+   "id": "004",
+   "label": "Nuggets, 10 pc",
+   "group": "brand",
+   "confidence": "exact",
+   "truth": 410
+  },
+  {
+   "id": "005",
+   "label": "Glazed doughnut",
+   "group": "brand",
+   "confidence": "exact",
+   "truth": 190
+  },
+  {
+   "id": "006",
+   "label": "Chocolate bar, halved",
+   "group": "brand",
+   "confidence": "exact",
+   "truth": 250
+  },
+  {
+   "id": "007",
+   "label": "Cola, ~12 oz",
+   "group": "simple",
+   "confidence": "exact",
+   "truth": 140
+  },
+  {
+   "id": "008",
+   "label": "Banana, 118 g",
+   "group": "simple",
+   "confidence": "exact",
+   "truth": 105
+  },
+  {
+   "id": "009",
+   "label": "Apple, 182 g",
+   "group": "simple",
+   "confidence": "exact",
+   "truth": 95
+  },
+  {
+   "id": "010",
+   "label": "Six boiled eggs",
+   "group": "simple",
+   "confidence": "exact",
+   "truth": 468
+  },
+  {
+   "id": "011",
+   "label": "Whole avocado, 201 g",
+   "group": "simple",
+   "confidence": "exact",
+   "truth": 322
+  },
+  {
+   "id": "012",
+   "label": "Garlic bread, ~4 slices",
+   "group": "dense_bread",
+   "confidence": "approximate",
+   "truth": 360
+  },
+  {
+   "id": "013",
+   "label": "Pizza slice, 14 in",
+   "group": "dense_bread",
+   "confidence": "exact",
+   "truth": 300
+  },
+  {
+   "id": "014",
+   "label": "Two hot dogs",
+   "group": "simple",
+   "confidence": "exact",
+   "truth": 600
+  },
+  {
+   "id": "015",
+   "label": "Fast-food combo",
+   "group": "combo",
+   "confidence": "approximate",
+   "truth": 1080
+  },
+  {
+   "id": "016",
+   "label": "Restaurant plate, ~450 g",
+   "group": "combo",
+   "confidence": "approximate",
+   "truth": 670
+  }
+ ],
+ "runs": [
+  {
+   "id": "claude-sonnet-v2-2026-07-14",
+   "model": "claude-sonnet",
+   "prompt": "v2",
+   "date": "2026-07-14",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 625.0,
+     "latency": 6.6
+    },
+    "002": {
+     "kcal": 761.0,
+     "latency": 6.7
+    },
+    "003": {
+     "kcal": 420.0,
+     "latency": 4.5
+    },
+    "004": {
+     "kcal": 450.0,
+     "latency": 9.2
+    },
+    "005": {
+     "kcal": 275.0,
+     "latency": 4.3
+    },
+    "006": {
+     "kcal": 436.0,
+     "latency": 5.2
+    },
+    "007": {
+     "kcal": 110.0,
+     "latency": 9.3
+    },
+    "008": {
+     "kcal": 116.0,
+     "latency": 3.0
+    },
+    "009": {
+     "kcal": 94.0,
+     "latency": 2.7
+    },
+    "010": {
+     "kcal": 474.0,
+     "latency": 8.3
+    },
+    "011": {
+     "kcal": 483.0,
+     "latency": 11.9
+    },
+    "012": {
+     "kcal": 590.0,
+     "latency": 5.4
+    },
+    "013": {
+     "kcal": 600.0,
+     "latency": 5.3
+    },
+    "014": {
+     "kcal": 600.0,
+     "latency": 14.1
+    },
+    "016": {
+     "kcal": 521.0,
+     "latency": 9.4
+    }
+   }
+  },
+  {
+   "id": "gemini-2.5-flash-shipped-2026-07-29",
+   "model": "gemini-2.5-flash",
+   "prompt": "shipped",
+   "date": "2026-07-29",
+   "repeats": 3,
+   "estimates": {
+    "001": {
+     "kcal": 613.0,
+     "latency": 24.1,
+     "spread": 130.0
+    },
+    "002": {
+     "kcal": 929.0,
+     "latency": 19.6,
+     "spread": 131.0
+    },
+    "003": {
+     "kcal": 350.0,
+     "latency": 7.3,
+     "spread": 160.0
+    },
+    "004": {
+     "kcal": 280.0,
+     "latency": 6.7,
+     "spread": 190.0
+    },
+    "005": {
+     "kcal": 190.0,
+     "latency": 7.1,
+     "spread": 27.0
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 19.9,
+     "spread": 11.0
+    },
+    "007": {
+     "kcal": 140.0,
+     "latency": 10.1,
+     "spread": 44.0
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 9.4,
+     "spread": 0.0
+    },
+    "009": {
+     "kcal": 101.0,
+     "latency": 7.3,
+     "spread": 10.0
+    },
+    "010": {
+     "kcal": 468.0,
+     "latency": 13.4,
+     "spread": 36.0
+    },
+    "011": {
+     "kcal": 429.0,
+     "latency": 20.9,
+     "spread": 88.0
+    },
+    "012": {
+     "kcal": 697.0,
+     "latency": 13.6,
+     "spread": 288.0
+    },
+    "013": {
+     "kcal": 310.0,
+     "latency": 16.9,
+     "spread": 33.0
+    },
+    "014": {
+     "kcal": 620.0,
+     "latency": 16.6,
+     "spread": 96.0
+    },
+    "015": {
+     "kcal": 1461.0,
+     "latency": 16.2,
+     "spread": 180.0
+    },
+    "016": {
+     "kcal": 670.0,
+     "latency": 17.4,
+     "spread": 83.0
+    }
+   }
+  },
+  {
+   "id": "gemini-2.5-flash-v2-2026-07-14",
+   "model": "gemini-2.5-flash",
+   "prompt": "v2",
+   "date": "2026-07-14",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 821.0,
+     "latency": 13.3
+    },
+    "002": {
+     "kcal": 1059.0,
+     "latency": 12.2
+    },
+    "003": {
+     "kcal": 346.0,
+     "latency": 15.4
+    },
+    "004": {
+     "kcal": 447.0,
+     "latency": 10.7
+    },
+    "005": {
+     "kcal": 243.0,
+     "latency": 6.8
+    },
+    "006": {
+     "kcal": 264.0,
+     "latency": 7.8
+    },
+    "007": {
+     "kcal": 100.0,
+     "latency": 5.9
+    },
+    "008": {
+     "kcal": 89.0,
+     "latency": 7.3
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 5.3
+    },
+    "010": {
+     "kcal": 452.0,
+     "latency": 6.2
+    },
+    "011": {
+     "kcal": 218.0,
+     "latency": 11.6
+    },
+    "012": {
+     "kcal": 586.0,
+     "latency": 8.6
+    },
+    "013": {
+     "kcal": 446.0,
+     "latency": 15.7
+    },
+    "014": {
+     "kcal": 680.0,
+     "latency": 9.5
+    },
+    "015": {
+     "kcal": 1710.0,
+     "latency": 15.5
+    },
+    "016": {
+     "kcal": 546.0,
+     "latency": 9.1
+    }
+   }
+  },
+  {
+   "id": "gemini-2.5-flash-v3-2026-07-29",
+   "model": "gemini-2.5-flash",
+   "prompt": "v3",
+   "date": "2026-07-29",
+   "repeats": 3,
+   "estimates": {
+    "001": {
+     "kcal": 568.0,
+     "latency": 24.9,
+     "spread": 69.0
+    },
+    "002": {
+     "kcal": 1019.0,
+     "latency": 13.8,
+     "spread": 50.0
+    },
+    "003": {
+     "kcal": 350.0,
+     "latency": 8.4,
+     "spread": 0.0
+    },
+    "004": {
+     "kcal": 470.0,
+     "latency": 9.6,
+     "spread": 80.0
+    },
+    "005": {
+     "kcal": 198.0,
+     "latency": 10.3,
+     "spread": 10.0
+    },
+    "006": {
+     "kcal": 258.0,
+     "latency": 15.2,
+     "spread": 17.0
+    },
+    "007": {
+     "kcal": 140.0,
+     "latency": 8.4,
+     "spread": 25.0
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 9.0,
+     "spread": 12.0
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 8.5,
+     "spread": 0.0
+    },
+    "010": {
+     "kcal": 468.0,
+     "latency": 10.1,
+     "spread": 48.0
+    },
+    "011": {
+     "kcal": 224.0,
+     "latency": 13.9,
+     "spread": 54.0
+    },
+    "012": {
+     "kcal": 645.0,
+     "latency": 13.9,
+     "spread": 312.0
+    },
+    "013": {
+     "kcal": 327.0,
+     "latency": 13.4,
+     "spread": 11.0
+    },
+    "014": {
+     "kcal": 646.0,
+     "latency": 11.2,
+     "spread": 20.0
+    },
+    "015": {
+     "kcal": 1390.0,
+     "latency": 19.9,
+     "spread": 62.0
+    },
+    "016": {
+     "kcal": 645.0,
+     "latency": 20.7,
+     "spread": 150.0
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v2-2026-07-14",
+   "model": "gemini-3-flash",
+   "prompt": "v2",
+   "date": "2026-07-14",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 600.0,
+     "latency": 12.6
+    },
+    "002": {
+     "kcal": 895.0,
+     "latency": 16.4
+    },
+    "004": {
+     "kcal": 417.0,
+     "latency": 9.7
+    },
+    "005": {
+     "kcal": 242.0,
+     "latency": 12.1
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 8.5
+    },
+    "007": {
+     "kcal": 128.0,
+     "latency": 46.6
+    },
+    "008": {
+     "kcal": 117.0,
+     "latency": 7.4
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 22.1
+    },
+    "010": {
+     "kcal": 456.0,
+     "latency": 37.1
+    },
+    "011": {
+     "kcal": 480.0,
+     "latency": 53.1
+    },
+    "012": {
+     "kcal": 728.0,
+     "latency": 11.7
+    },
+    "013": {
+     "kcal": 415.0,
+     "latency": 17.1
+    },
+    "014": {
+     "kcal": 620.0,
+     "latency": 9.8
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v2-2026-07-15",
+   "model": "gemini-3-flash",
+   "prompt": "v2",
+   "date": "2026-07-15",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 575.0,
+     "latency": 18.0
+    },
+    "002": {
+     "kcal": 673.0,
+     "latency": 9.8
+    },
+    "003": {
+     "kcal": 484.0,
+     "latency": 8.9
+    },
+    "004": {
+     "kcal": 425.0,
+     "latency": 9.1
+    },
+    "005": {
+     "kcal": 251.0,
+     "latency": 6.8
+    },
+    "006": {
+     "kcal": 246.0,
+     "latency": 8.4
+    },
+    "007": {
+     "kcal": 105.0,
+     "latency": 8.5
+    },
+    "008": {
+     "kcal": 117.0,
+     "latency": 6.4
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 17.6
+    },
+    "010": {
+     "kcal": 462.0,
+     "latency": 7.1
+    },
+    "011": {
+     "kcal": 488.0,
+     "latency": 30.1
+    },
+    "012": {
+     "kcal": 620.0,
+     "latency": 10.8
+    },
+    "013": {
+     "kcal": 377.0,
+     "latency": 11.2
+    },
+    "014": {
+     "kcal": 610.0,
+     "latency": 17.7
+    },
+    "015": {
+     "kcal": 1365.0,
+     "latency": 12.2
+    },
+    "016": {
+     "kcal": 507.0,
+     "latency": 20.1
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v3-2026-07-15",
+   "model": "gemini-3-flash",
+   "prompt": "v3",
+   "date": "2026-07-15",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 590.0,
+     "latency": 15.2
+    },
+    "002": {
+     "kcal": 795.0,
+     "latency": 7.9
+    },
+    "003": {
+     "kcal": 346.0,
+     "latency": 9.8
+    },
+    "004": {
+     "kcal": 410.0,
+     "latency": 9.5
+    },
+    "005": {
+     "kcal": 240.0,
+     "latency": 8.2
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 13.6
+    },
+    "007": {
+     "kcal": 128.0,
+     "latency": 14.8
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 5.6
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 4.8
+    },
+    "010": {
+     "kcal": 468.0,
+     "latency": 7.1
+    },
+    "011": {
+     "kcal": 480.0,
+     "latency": 9.1
+    },
+    "012": {
+     "kcal": 645.0,
+     "latency": 21.3
+    },
+    "013": {
+     "kcal": 310.0,
+     "latency": 21.1
+    },
+    "014": {
+     "kcal": 600.0,
+     "latency": 13.5
+    },
+    "015": {
+     "kcal": 1385.0,
+     "latency": 14.0
+    },
+    "016": {
+     "kcal": 512.0,
+     "latency": 9.5
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v3-2026-07-23",
+   "model": "gemini-3-flash",
+   "prompt": "v3",
+   "date": "2026-07-23",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 600.0,
+     "latency": 31.7
+    },
+    "002": {
+     "kcal": 665.0,
+     "latency": 6.9
+    },
+    "003": {
+     "kcal": 320.0,
+     "latency": 6.6
+    },
+    "004": {
+     "kcal": 420.0,
+     "latency": 24.8
+    },
+    "005": {
+     "kcal": 190.0,
+     "latency": 26.5
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 68.4
+    },
+    "007": {
+     "kcal": 95.0,
+     "latency": 18.2
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 6.5
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 13.1
+    },
+    "010": {
+     "kcal": 468.0,
+     "latency": 61.9
+    },
+    "011": {
+     "kcal": 480.0,
+     "latency": 55.8
+    },
+    "012": {
+     "kcal": 415.0,
+     "latency": 18.1
+    },
+    "013": {
+     "kcal": 310.0,
+     "latency": 33.6
+    },
+    "014": {
+     "kcal": 595.0,
+     "latency": 18.7
+    },
+    "015": {
+     "kcal": 1360.0,
+     "latency": 19.4
+    },
+    "016": {
+     "kcal": 455.0,
+     "latency": 33.8
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v3c-2026-07-23",
+   "model": "gemini-3-flash",
+   "prompt": "v3c",
+   "date": "2026-07-23",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 650.0,
+     "latency": 7.1
+    },
+    "002": {
+     "kcal": 635.0,
+     "latency": 6.3
+    },
+    "003": {
+     "kcal": 480.0,
+     "latency": 28.2
+    },
+    "004": {
+     "kcal": 410.0,
+     "latency": 18.5
+    },
+    "005": {
+     "kcal": 210.0,
+     "latency": 13.9
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 5.6
+    },
+    "007": {
+     "kcal": 114.0,
+     "latency": 16.5
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 5.9
+    },
+    "010": {
+     "kcal": 432.0,
+     "latency": 15.0
+    },
+    "011": {
+     "kcal": 480.0,
+     "latency": 25.8
+    },
+    "012": {
+     "kcal": 535.0,
+     "latency": 29.5
+    },
+    "013": {
+     "kcal": 340.0,
+     "latency": 6.0
+    },
+    "014": {
+     "kcal": 580.0,
+     "latency": 35.6
+    },
+    "016": {
+     "kcal": 477.0,
+     "latency": 18.0
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v4-2026-07-23",
+   "model": "gemini-3-flash",
+   "prompt": "v4",
+   "date": "2026-07-23",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 590.0,
+     "latency": 14.4
+    },
+    "002": {
+     "kcal": 800.0,
+     "latency": 24.9
+    },
+    "003": {
+     "kcal": 350.0,
+     "latency": 9.3
+    },
+    "004": {
+     "kcal": 410.0,
+     "latency": 28.3
+    },
+    "005": {
+     "kcal": 240.0,
+     "latency": 11.9
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 20.5
+    },
+    "007": {
+     "kcal": 105.0,
+     "latency": 9.6
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 10.1
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 35.5
+    },
+    "010": {
+     "kcal": 468.0,
+     "latency": 12.5
+    },
+    "011": {
+     "kcal": 480.0,
+     "latency": 10.8
+    },
+    "012": {
+     "kcal": 525.0,
+     "latency": 25.5
+    },
+    "013": {
+     "kcal": 295.0,
+     "latency": 11.4
+    },
+    "014": {
+     "kcal": 600.0,
+     "latency": 23.5
+    },
+    "015": {
+     "kcal": 1490.0,
+     "latency": 68.1
+    },
+    "016": {
+     "kcal": 509.0,
+     "latency": 13.3
+    }
+   }
+  },
+  {
+   "id": "gemini-3-flash-v5-2026-07-28",
+   "model": "gemini-3-flash",
+   "prompt": "v5",
+   "date": "2026-07-28",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 540.0,
+     "latency": 16.1
+    },
+    "002": {
+     "kcal": 690.0,
+     "latency": 19.2
+    },
+    "003": {
+     "kcal": 350.0,
+     "latency": 102.0
+    },
+    "004": {
+     "kcal": 415.0,
+     "latency": 89.5
+    },
+    "005": {
+     "kcal": 222.0,
+     "latency": 10.5
+    },
+    "006": {
+     "kcal": 256.0,
+     "latency": 11.2
+    },
+    "007": {
+     "kcal": 105.0,
+     "latency": 38.2
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 8.6
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 57.0
+    },
+    "010": {
+     "kcal": 468.0,
+     "latency": 9.9
+    },
+    "011": {
+     "kcal": 480.0,
+     "latency": 14.7
+    },
+    "012": {
+     "kcal": 565.0,
+     "latency": 24.5
+    },
+    "013": {
+     "kcal": 335.0,
+     "latency": 10.8
+    },
+    "014": {
+     "kcal": 600.0,
+     "latency": 10.5
+    },
+    "015": {
+     "kcal": 1360.0,
+     "latency": 16.5
+    },
+    "016": {
+     "kcal": 504.0,
+     "latency": 12.6
+    }
+   }
+  },
+  {
+   "id": "gemini-3.1-pro-v3-2026-07-23",
+   "model": "gemini-3.1-pro",
+   "prompt": "v3",
+   "date": "2026-07-23",
+   "repeats": 1,
+   "estimates": {
+    "001": {
+     "kcal": 555.0,
+     "latency": 17.6
+    },
+    "002": {
+     "kcal": 700.0,
+     "latency": 19.7
+    },
+    "003": {
+     "kcal": 350.0,
+     "latency": 19.4
+    },
+    "005": {
+     "kcal": 260.0,
+     "latency": 18.9
+    },
+    "007": {
+     "kcal": 125.0,
+     "latency": 22.5
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 24.0
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 20.0
+    },
+    "010": {
+     "kcal": 432.0,
+     "latency": 18.9
+    },
+    "012": {
+     "kcal": 610.0,
+     "latency": 46.2
+    },
+    "013": {
+     "kcal": 355.0,
+     "latency": 22.3
+    },
+    "014": {
+     "kcal": 525.0,
+     "latency": 18.8
+    },
+    "015": {
+     "kcal": 1355.0,
+     "latency": 27.6
+    },
+    "016": {
+     "kcal": 680.0,
+     "latency": 89.9
+    }
+   }
+  },
+  {
+   "id": "gemini-3.5-flash-v3-2026-07-23",
+   "model": "gemini-3.5-flash",
+   "prompt": "v3",
+   "date": "2026-07-23",
+   "repeats": 1,
+   "estimates": {
+    "005": {
+     "kcal": 220.0,
+     "latency": 10.7
+    },
+    "006": {
+     "kcal": 250.0,
+     "latency": 9.8
+    },
+    "007": {
+     "kcal": 100.0,
+     "latency": 40.7
+    },
+    "008": {
+     "kcal": 105.0,
+     "latency": 7.5
+    },
+    "009": {
+     "kcal": 95.0,
+     "latency": 45.3
+    },
+    "010": {
+     "kcal": 432.0,
+     "latency": 10.7
+    },
+    "011": {
+     "kcal": 488.0,
+     "latency": 9.0
+    },
+    "012": {
+     "kcal": 580.0,
+     "latency": 10.6
+    },
+    "013": {
+     "kcal": 295.0,
+     "latency": 8.3
+    },
+    "014": {
+     "kcal": 585.0,
+     "latency": 10.5
+    },
+    "015": {
+     "kcal": 1345.0,
+     "latency": 11.3
+    },
+    "016": {
+     "kcal": 371.0,
+     "latency": 13.0
+    }
+   }
+  }
+ ]
+}
