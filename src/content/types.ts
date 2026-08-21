@@ -71,6 +71,11 @@ export interface Project {
   featured?: boolean;
   /** Set true to keep an entry in the file but out of the site. */
   draft?: boolean;
+  /**
+   * The sixty-second version: three short lines, no more. Most visitors read
+   * only these, so they carry the whole project on their own.
+   */
+  atAGlance?: string[];
   /** The case study. Omit any of these and the section disappears. */
   problem?: string[];
   approach?: string[];

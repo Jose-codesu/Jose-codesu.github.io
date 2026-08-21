@@ -25,13 +25,15 @@ export function SiteFooter() {
                     Home
                   </Link>
                 </li>
-                {nav.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="text-muted transition-colors hover:text-fg">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {[...nav, { label: 'Credentials', href: '/credentials' }, { label: 'Résumé', href: '/resume' }].map(
+                  (item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="text-muted transition-colors hover:text-fg">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </nav>
 

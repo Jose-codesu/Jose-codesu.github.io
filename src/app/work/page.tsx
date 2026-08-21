@@ -14,15 +14,14 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <Container>
-      <header className="border-b border-line pt-14 pb-10 sm:pt-24">
+      <header className="pt-14 pb-6 sm:pt-24">
         <Reveal>
           <p className="eyebrow">Work</p>
           <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.5rem,7vw,4.25rem)] leading-[1] tracking-tight">
-            Everything I have built, with the reasoning left in.
+            Three products, built solo.
           </h1>
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-muted">
-            Each case study covers the problem, the decisions that shaped the product, and what
-            actually shipped — including the parts that were harder than expected.
+          <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-muted">
+            Pick one for the two-minute version, or filter by what it is built with.
           </p>
         </Reveal>
       </header>

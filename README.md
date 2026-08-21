@@ -124,6 +124,23 @@ npm run dev        # http://localhost:3000
 
 ---
 
+## La regla de edición
+
+El sitio está escrito para **60 segundos primero, profundidad después**. Si
+agregas algo, respeta el reparto:
+
+| Superficie | Para qué | Largo máximo |
+| --- | --- | --- |
+| Portada | Quién eres, qué construiste, cómo contactarte | ~200 palabras, 3 pantallas |
+| `/work` | Elegir un proyecto | Una tarjeta por proyecto: foto, nombre, una línea |
+| Case study (arriba del corte) | La versión de 60 segundos | Resumen + 3 bullets + capturas + demo |
+| Case study (bajo *The long version*) | Para quien ya decidió leer | Sin límite, pero las notas de ingeniería van colapsadas |
+| `/notes` | Escritura técnica | Sin límite; llevan tiempo de lectura |
+
+El menú tiene cuatro entradas y se queda en cuatro. Credentials y Résumé se
+alcanzan desde About, el footer y ⌘K — un menú de seis links se lee como un
+sitio que hay que recorrer, no como uno que se mira.
+
 ## Cómo está construido
 
 - **Next.js 16 App Router** con `output: 'export'` → HTML estático puro. GitHub

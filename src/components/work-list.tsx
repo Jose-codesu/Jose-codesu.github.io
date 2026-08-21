@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import type { Project } from '@/content/types';
 import { projectUsesSkill } from '@/lib/evidence';
-import { ProjectCard } from './project-card';
+import { ProjectTile } from './project-tile';
 import { cn } from '@/lib/cn';
 
 /**
@@ -49,9 +49,9 @@ export function WorkList({
         </div>
       )}
 
-      <div className="divide-y divide-line">
-        {shown.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {shown.map((project, index) => (
+          <ProjectTile key={project.slug} project={project} priority={index === 0} />
         ))}
       </div>
 

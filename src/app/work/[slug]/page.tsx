@@ -10,6 +10,7 @@ import { ButtonLink } from '@/components/ui/button';
 import { ArrowRight, ArrowUpRight } from '@/components/ui/arrow';
 import { getProject, visibleProjects } from '@/content/projects';
 import { site } from '@/content/site';
+import { caseStudyMinutes } from '@/lib/case-study-length';
 
 type Params = { slug: string };
 
@@ -82,6 +83,18 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           <p className="mt-8 max-w-2xl text-[17px] leading-relaxed">{project.summary}</p>
         </Reveal>
 
+        {project.atAGlance && (
+          <Reveal delay={140}>
+            <ul className="mt-8 max-w-2xl space-y-3 border-l-2 border-accent/40 pl-5">
+              {project.atAGlance.map((line) => (
+                <li key={line} className="text-[15px] leading-relaxed text-muted">
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        )}
+
         {project.links && project.links.length > 0 && (
           <Reveal delay={140} className="mt-8 flex flex-wrap gap-3">
             {project.links.map((link) => (
@@ -108,19 +121,27 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         </Reveal>
       )}
 
-      {/* ---- Meta ---------------------------------------------------------- */}
-      <Reveal>
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-6 border-y border-line py-8 sm:grid-cols-4">
-          <Meta label="Role" value={project.role} />
-          <Meta label="Platform" value={project.platform} />
-          <Meta label="Year" value={project.year} />
-          <Meta label="Stack" value={`${project.stack.length} technologies`} />
-        </dl>
-      </Reveal>
+      {project.demo && (
+        <Reveal className="mb-14">
+          <Link
+            href={project.demo.href}
+            className="hover-lift hover-arrow card-press pressable flex flex-col gap-4 rounded-2xl border border-line bg-panel px-6 py-7 hover:border-line-strong sm:flex-row sm:items-center sm:gap-8 sm:px-8"
+          >
+            <div>
+              <p className="eyebrow">Try it yourself</p>
+              <p className="mt-2 font-display text-2xl tracking-tight">{project.demo.label}</p>
+            </div>
+            <p className="max-w-md text-[14px] leading-relaxed text-muted sm:ml-auto">
+              {project.demo.body}
+            </p>
+            <ArrowRight className="hidden size-5 shrink-0 text-muted sm:block" />
+          </Link>
+        </Reveal>
+      )}
 
       {project.metrics && (
         <Reveal>
-          <dl className="grid gap-8 border-b border-line py-10 sm:grid-cols-3">
+          <dl className="grid gap-8 border-y border-line py-10 sm:grid-cols-3">
             {project.metrics.map((metric) => (
               <div key={metric.label}>
                 <dt className="sr-only">{metric.label}</dt>
@@ -136,7 +157,25 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         </Reveal>
       )}
 
-      {/* ---- Case study ---------------------------------------------------- */}
+      {/* ---- The fold ------------------------------------------------------
+          Everything above answers "what is it". Everything below is for the
+          reader who has already decided they care, and it says so.        */}
+      <Reveal className="mt-20 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line pb-4">
+        <h2 className="font-display text-2xl tracking-tight">The long version</h2>
+        <p className="font-mono text-[11px] tracking-wide text-faint uppercase">
+          {caseStudyMinutes(project)} min · how it was built and why
+        </p>
+      </Reveal>
+
+      <Reveal>
+        <dl className="grid grid-cols-2 gap-x-8 gap-y-6 border-b border-line py-8 sm:grid-cols-4">
+          <Meta label="Role" value={project.role} />
+          <Meta label="Platform" value={project.platform} />
+          <Meta label="Year" value={project.year} />
+          <Meta label="Stack" value={`${project.stack.length} technologies`} />
+        </dl>
+      </Reveal>
+
       <div className="mt-16 space-y-16">
         {project.problem && (
           <Prose eyebrow="01" title="The problem">
@@ -196,18 +235,29 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
                 </p>
               </Reveal>
 
-              <div className="mt-8 space-y-10">
+              <div className="mt-8">
                 {project.notes.map((note) => (
-                  <Reveal key={note.title} className="border-t border-line pt-6">
-                    <h3 className="text-[17px] font-medium tracking-tight">{note.title}</h3>
-                    <div className="mt-3 space-y-4">
+                  /* Closed by default: three of these turn a page into a wall.
+                     The summary line is the whole finding, so the collapsed
+                     state still reads as content rather than as a mystery. */
+                  <details key={note.title} className="group border-t border-line py-5">
+                    <summary className="flex cursor-pointer list-none items-center gap-3 text-[17px] font-medium tracking-tight [&::-webkit-details-marker]:hidden">
+                      <span
+                        aria-hidden
+                        className="grid size-5 shrink-0 place-items-center rounded-full border border-line text-[11px] text-muted transition-transform duration-200 group-open:rotate-45"
+                      >
+                        +
+                      </span>
+                      {note.title}
+                    </summary>
+                    <div className="mt-4 space-y-4 pl-8">
                       {note.body.map((paragraph) => (
                         <p key={paragraph} className="max-w-2xl text-[16px] leading-relaxed text-muted">
                           {paragraph}
                         </p>
                       ))}
                     </div>
-                  </Reveal>
+                  </details>
                 ))}
               </div>
             </div>
@@ -220,25 +270,6 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted">
               {project.disclosure}
             </p>
-          </Reveal>
-        )}
-
-        {project.demo && (
-          <Reveal>
-            <Link
-              href={project.demo.href}
-              className="hover-lift hover-arrow card-press pressable block rounded-2xl border border-line bg-panel px-6 py-8 hover:border-line-strong sm:px-10"
-            >
-              <p className="eyebrow">Try it yourself</p>
-              <p className="mt-3 font-display text-2xl tracking-tight">{project.demo.label}</p>
-              <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted">
-                {project.demo.body}
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-[13px]">
-                Open the demo
-                <ArrowRight />
-              </span>
-            </Link>
           </Reveal>
         )}
 

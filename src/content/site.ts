@@ -19,9 +19,12 @@ export const site = {
    */
   headline: 'I build AI products *end to end*.',
 
-  /** Two sentences under the headline. Concrete, no adjectives you can not prove. */
+  /**
+   * Two sentences under the headline, and they stay two sentences. Anyone who
+   * wants the longer version clicks through to the about page.
+   */
   intro:
-    'Applied Artificial Intelligence undergraduate at Miami Dade College, Google-certified in cybersecurity, and a technology retail manager who ships software nights and weekends. I design and build the whole thing: agent loops against the Claude API, SwiftUI apps with local-first data, and Next.js tools that hold up under an audit.',
+    'Applied AI undergraduate in Miami, technology retail manager by day. I ship whole products solo: agent loops on the Claude API, local-first SwiftUI apps, and web tools built to survive an audit.',
 
   availability: {
     open: true,
@@ -59,12 +62,15 @@ export const socials: SocialLink[] = [
 
 import { publishedNotes } from './notes';
 
-/** Notes joins the nav the moment the first one is published — see notes.ts. */
+/**
+ * Four items, and it stays four. Credentials and the résumé live inside About,
+ * where someone goes when they have already decided to keep reading — a nav bar
+ * with six links reads as a site to get through rather than one to look at.
+ * Notes joins only once something is published (see notes.ts).
+ */
 export const nav = [
   { label: 'Work', href: '/work' },
   { label: 'Lab', href: '/lab' },
   ...(publishedNotes.length > 0 ? [{ label: 'Notes', href: '/notes' }] : []),
-  { label: 'Credentials', href: '/credentials' },
   { label: 'About', href: '/about' },
-  { label: 'Résumé', href: '/resume' },
 ];

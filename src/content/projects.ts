@@ -65,6 +65,11 @@ export const projects: Project[] = [
       { value: '3', label: 'model & data providers orchestrated' },
       { value: '120Hz', label: 'motion budget the UI is built to' },
     ],
+    atAGlance: [
+      'You type what you ate; an agent on the Claude API estimates or looks up the macros and writes structured entries. No search, no dropdowns, no forms.',
+      'The model never writes to storage directly — output is validated into typed rows first, and an estimate is labelled as an estimate.',
+      'Zero third-party Swift packages, keys in the Keychain, and a measured eval bank behind the accuracy claims.',
+    ],
     featured: true,
     // Repo is private, so no link here yet. Add a TestFlight or App Store link
     // when the beta opens up: { label: 'TestFlight', href: '…', kind: 'testflight' }
@@ -180,6 +185,11 @@ export const projects: Project[] = [
       { value: '1', label: 'network call in the whole app' },
       { value: '2', label: 'languages, generated from code' },
     ],
+    atAGlance: [
+      'A habit tracker with the guilt removed: today never breaks a streak, off-days do not count, and “streak: 0” does not exist.',
+      'Local-first — SwiftData in an App Group shared by app, widget and Watch. One network call in the entire product.',
+      'Breathwork is generated from four durations and a rhythm instead of a licensed audio library.',
+    ],
     featured: true,
     links: [
       { label: 'Privacy policy', href: 'https://github.com/Jose-codesu/habitat-privacy', kind: 'other' },
@@ -290,6 +300,11 @@ export const projects: Project[] = [
       { value: '$77.8M', label: 'improper payments in the audit that framed the product' },
       { value: '100/100', label: 'sampled patient-months with deficient notes' },
       { value: '24-48h', label: 'documentation window the product is designed around' },
+    ],
+    atAGlance: [
+      'A $77.8M audit finding traced to documentation failures is the product spec: every finding maps to a check that runs before anyone signs.',
+      'AI drafts the narrative from structured fields it cannot invent; codes, hours and signatures stay deterministic.',
+      'Clone detection with Jaccard over trigrams — the copy-paste pattern auditors look for first.',
     ],
     mediaNote:
       'Captured from the product walkthrough, recorded with the interface in Spanish — Notewell ships bilingual (EN/ES). All data shown is synthetic.',

@@ -6,8 +6,6 @@ import { ExperienceList } from '@/components/experience-list';
 import { LogList } from '@/components/log-list';
 import { ButtonLink } from '@/components/ui/button';
 import { CopyEmail } from '@/components/copy-email';
-import { ArrowUpRight } from '@/components/ui/arrow';
-import { site } from '@/content/site';
 import { sortedLog } from '@/content/log';
 
 export const metadata: Metadata = {
@@ -21,23 +19,15 @@ export const metadata: Metadata = {
 const principles = [
   {
     title: 'Ship the whole thing',
-    body: 'A model call is not a product. The work I care about includes the interface around it, the storage under it, the failure states, the release, and the privacy policy — because that is where a demo either becomes something usable or does not.',
+    body: 'A model call is not a product. The work includes the interface around it, the storage under it, the failure states and the release — that is where a demo either becomes usable or does not.',
   },
   {
     title: 'Constrain the model, then let it write',
-    body: 'Generation belongs where prose is genuinely the deliverable. Everything a system must be right about — codes, totals, dates, records — gets deterministic checks. The interesting engineering is drawing that line correctly.',
+    body: 'Generation belongs where prose is the deliverable. Everything a system must be right about — codes, totals, records — gets deterministic checks. The engineering is drawing that line.',
   },
   {
     title: 'Be honest about confidence',
-    body: 'An estimate should look like an estimate in the interface. Presenting a guess with the same authority as a verified lookup is a design decision, and it is the wrong one.',
-  },
-  {
-    title: 'Put the logic where it can be tested',
-    body: 'Streak rules, audit checks, similarity scoring — pull them into pure functions that run without a simulator or a server, and the tests take seconds instead of minutes. Slow tests do not get run.',
-  },
-  {
-    title: 'Write it down',
-    body: 'Every project I build has a document explaining what it is and which decisions define it, dated. It is how I keep a product coherent while working alone, and how I hand context to anyone — or any agent — who joins later.',
+    body: 'An estimate should look like an estimate, and a metric that cannot know an answer should say so. Dressing a guess as a measurement is a decision, and it is the wrong one.',
   },
 ];
 
@@ -62,34 +52,29 @@ export default function AboutPage() {
             <p>
               I run a mobile technology store in Davie, Florida, and I am an{' '}
               <strong>Applied Artificial Intelligence undergraduate at Miami Dade College</strong>.
-              Between shifts I design and build software — currently three products, all of them
-              solo, all of them shipped or in review rather than sitting in a folder.
+              Between shifts I build software — three products so far, all solo, all shipped or in
+              review rather than sitting in a folder.
             </p>
             <p>
-              The path here was not a straight line. I spent two years running production at a
-              cabinet shop, operating CNC and thermofoil machines, where a wrong number does not
-              throw an exception — it ruins the material. Then four years in mobile retail:
-              diagnosing device and account problems all day, explaining technical things to people
-              who did not ask for a technical answer, and leading teams through it.
+              The path was not straight. Two years running production at a cabinet shop on CNC
+              machines, where a wrong number does not throw an exception, it ruins the material.
+              Then four years in mobile retail, diagnosing device problems all day and explaining
+              technical things to people who did not ask for a technical answer.
             </p>
             <p>
-              In January 2025 I finished the{' '}
-              <strong>Google Cybersecurity Professional Certificate</strong>, which is where Linux,
-              SQL, networking and Python automation stopped being words and started being tools.
-              Since then the work has been continuous: an agent-driven iOS food journal, a
-              local-first habit tracker with a Watch app and widgets, and a compliance-focused notes
-              tool for behavior therapy clinics.
-            </p>
-            <p>
-              What I am after now is an <strong>AI engineering role</strong> where the whole loop is
-              on the table — model behavior, product decisions, and the code that carries both.
+              The <strong>Google Cybersecurity Professional Certificate</strong> in January 2025 is
+              where Linux, SQL and Python stopped being words and became tools. What I want now is
+              an <strong>AI engineering role</strong> where the whole loop is on the table — model
+              behaviour, product decisions, and the code that carries both.
             </p>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <ButtonLink href={site.resumePath} external variant="outline" size="sm">
-              Download résumé
-              <ArrowUpRight className="opacity-60" />
+            <ButtonLink href="/resume" variant="outline" size="sm">
+              Résumé
+            </ButtonLink>
+            <ButtonLink href="/credentials" variant="outline" size="sm">
+              Credentials
             </ButtonLink>
             <CopyEmail />
           </div>
@@ -129,10 +114,10 @@ export default function AboutPage() {
 
       <Section
         eyebrow="Log"
-        title="The running record"
+        title="Recently"
         description="Dated entries, added as things happen."
       >
-        <LogList entries={sortedLog} />
+        <LogList entries={sortedLog.slice(0, 4)} />
       </Section>
 
       <section className="mt-24 rounded-2xl border border-line bg-panel px-6 py-12 sm:px-12">

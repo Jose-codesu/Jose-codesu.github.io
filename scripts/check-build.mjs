@@ -25,7 +25,7 @@ async function exists(path) {
 /** Every route that must render, plus a string that proves it rendered. */
 const PAGES = [
   ['index.html', 'I build AI products'],
-  ['work/index.html', 'Everything I have built'],
+  ['work/index.html', 'Three products, built solo'],
   ['work/savor/index.html', 'Sage'],
   ['work/habitat/index.html', 'Habitat'],
   ['work/notewell/index.html', 'Notewell'],
