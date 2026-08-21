@@ -134,7 +134,9 @@ export interface LogEntry {
 export type NoteBlock =
   | { type: 'p' | 'h2' | 'quote'; text: string }
   | { type: 'list'; items: string[] }
-  | { type: 'code'; code: string; lang?: string };
+  | { type: 'code'; code: string; lang?: string }
+  /** Numbers read better as a table than as a paragraph of percentages. */
+  | { type: 'table'; head: string[]; rows: string[][]; caption?: string };
 
 export interface Note {
   slug: string;

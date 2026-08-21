@@ -7,6 +7,7 @@ import { RichText } from '@/components/rich-text';
 import { ArrowRight } from '@/components/ui/arrow';
 import { publishedNotes } from '@/content/notes';
 import { longDate } from '@/lib/format';
+import { readingTime } from '@/lib/reading-time';
 
 export const metadata: Metadata = {
   title: 'Notes',
@@ -40,17 +41,25 @@ export default function NotesPage() {
               href={`/notes/${note.slug}`}
               className="hover-lift hover-arrow card-press pressable -mx-4 grid gap-x-10 gap-y-2 rounded-xl border border-transparent px-4 py-8 hover:border-line hover:bg-panel sm:grid-cols-[9rem_1fr]"
             >
-              <time dateTime={note.date} className="font-mono text-[12px] text-faint">
-                {longDate(note.date)}
-              </time>
+              <div className="font-mono text-[12px] text-faint">
+                <time dateTime={note.date}>{longDate(note.date)}</time>
+                <p className="mt-1">{readingTime(note.body)} min read</p>
+              </div>
               <div>
                 <h2 className="font-display text-2xl tracking-tight">{note.title}</h2>
                 <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted">
                   <RichText text={note.summary} />
                 </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px]">
-                  Read
-                  <ArrowRight />
+                <span className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <span className="inline-flex items-center gap-1.5 text-[13px]">
+                    Read
+                    <ArrowRight />
+                  </span>
+                  {note.tags && (
+                    <span className="font-mono text-[11px] text-faint">
+                      {note.tags.join(' · ')}
+                    </span>
+                  )}
                 </span>
               </div>
             </Link>
