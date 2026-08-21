@@ -33,7 +33,8 @@ export const projects: Project[] = [
       { value: '120Hz', label: 'motion budget the UI is built to' },
     ],
     featured: true,
-    links: [{ label: 'Private repo', href: 'https://github.com/Jose-codesu', kind: 'repo' }],
+    // Repo is private, so no link here yet. Add a TestFlight or App Store link
+    // when the beta opens up: { label: 'TestFlight', href: '…', kind: 'testflight' }
     problem: [
       'Traditional trackers lose people in the first week, and it is never the calorie math that does it — it is the friction. A database search, a portion dropdown, a multi-field capture screen, repeated three times a day.',
       'The job to be done is not “log food”. It is “stay aware of what I eat without it feeling like work” — at a table, in a supermarket, at a restaurant, with a phone in one hand and a few seconds of patience.',
