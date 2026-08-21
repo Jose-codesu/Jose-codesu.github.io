@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/container';
-import { ProjectTile } from '@/components/project-tile';
+import { ProjectRow } from '@/components/project-row';
 import { Reveal } from '@/components/reveal';
 import { Emphasis } from '@/components/emphasis';
 import { ButtonLink } from '@/components/ui/button';
@@ -68,10 +68,10 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-2 divide-y divide-line">
           {featuredProjects.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 50} className="flex">
-              <ProjectTile project={project} priority={index === 0} />
+            <Reveal key={project.slug} delay={index * 50}>
+              <ProjectRow project={project} />
             </Reveal>
           ))}
         </div>

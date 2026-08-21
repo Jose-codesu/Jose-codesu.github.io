@@ -34,8 +34,10 @@ export function ProjectIcon({
   return (
     <span
       aria-hidden
-      className={cn(shared, 'grid place-items-center bg-panel font-display')}
-      style={{ width: size, height: size, fontSize: size * 0.5 }}
+      className={cn(shared, 'grid place-items-center bg-panel font-display leading-none')}
+      // The serif's ascent would otherwise push the letter off centre in a box
+      // this small; a nudge down from the optical centre reads as centred.
+      style={{ width: size, height: size, fontSize: size * 0.52, paddingTop: size * 0.04 }}
     >
       {project.name.charAt(0)}
     </span>

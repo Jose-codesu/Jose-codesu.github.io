@@ -3,7 +3,7 @@ import type { Status } from '@/content/types';
 
 const LABEL: Record<Status, string> = {
   shipped: 'Shipped',
-  'in-review': 'In App Store review',
+  'in-review': 'In review',
   beta: 'In beta',
   building: 'In development',
   research: 'Research',
