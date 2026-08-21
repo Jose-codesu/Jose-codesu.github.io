@@ -15,6 +15,34 @@ export const projects: Project[] = [
     status: 'beta',
     role: 'Solo — product, design, iOS engineering, agent design',
     platform: 'iOS 18 · iPhone',
+    icon: '/media/icons/savor.png',
+    media: [
+      {
+        src: '/media/savor/01-thread.jpg',
+        alt: 'The daily thread in Savor: logged meals with macro totals and a generated photograph of each dish',
+        caption: 'The day as a thread — entries written by the agent from plain language, each with a generated photograph.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+      {
+        src: '/media/savor/02-profile.jpg',
+        alt: 'Savor profile screen showing goals, weight and the settings for the assistant',
+        caption: 'Goals and settings. API keys live in the Keychain, never in UserDefaults.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+      {
+        src: '/media/savor/03-es-inicio.jpg',
+        alt: 'Savor running in Spanish, showing the same thread interface localized',
+        caption: 'Fully localized — the same thread in Spanish.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+    ],
+
     stack: [
       'Swift',
       'SwiftUI',
@@ -86,6 +114,50 @@ export const projects: Project[] = [
     status: 'in-review',
     role: 'Solo — product, design, iOS engineering',
     platform: 'iOS 18 · watchOS · Widgets',
+    icon: '/media/icons/habitat.png',
+    media: [
+      {
+        src: '/media/habitat/01-today.jpg',
+        alt: 'Habitat today screen with habits grouped by part of the day rather than by hour',
+        caption: 'Today, grouped by part of the day instead of by the clock.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+      {
+        src: '/media/habitat/02-progress.jpg',
+        alt: 'Habitat progress screen with a heatmap of completed days and streak counts',
+        caption: 'Progress. A streak below two days is never shown — there is no “streak: 0”.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+      {
+        src: '/media/habitat/03-insights.jpg',
+        alt: 'Habitat insights screen showing detected patterns between mood and habit completion',
+        caption: 'Insights, gated behind a statistical contrast so a coincidence is not reported as a pattern.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+      {
+        src: '/media/habitat/04-breathe.jpg',
+        alt: 'Habitat breathing screen with a circular pacer mid-session',
+        caption: 'Generative breathwork: a pattern is four durations and a rhythm, no recorded audio.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+      {
+        src: '/media/habitat/05-places.jpg',
+        alt: 'Habitat places screen listing nearby locations sorted strictly by proximity',
+        caption: 'Places, sorted strictly by distance — the app\u2019s only network call.',
+        kind: 'phone',
+        width: 460,
+        height: 1000,
+      },
+    ],
+
     stack: [
       'Swift',
       'SwiftUI',
@@ -157,6 +229,41 @@ export const projects: Project[] = [
     status: 'building',
     role: 'Solo — product research, full-stack engineering',
     platform: 'Web · Next.js',
+    media: [
+      {
+        src: '/media/notewell/01-dashboard.jpg',
+        alt: 'Notewell dashboard listing recent session notes with their status and a draft counter',
+        caption: 'The dashboard tracks drafts against the 24–48 hour documentation window.',
+        kind: 'wide',
+        width: 1100,
+        height: 688,
+      },
+      {
+        src: '/media/notewell/02-capture.jpg',
+        alt: 'Notewell note editor with structured fields for session data, goals and programs',
+        caption: 'Structured capture first: the model drafts the narrative from these fields, it does not invent them.',
+        kind: 'wide',
+        width: 1100,
+        height: 688,
+      },
+      {
+        src: '/media/notewell/03-audit-packet.jpg',
+        alt: 'Notewell audit packet for one client, collecting finalized notes with signatures into a single document',
+        caption: 'The audit packet: every finalized note for a client, signatures included, as one PDF.',
+        kind: 'wide',
+        width: 1100,
+        height: 688,
+      },
+      {
+        src: '/media/notewell/04-team.jpg',
+        alt: 'Notewell team dashboard showing per-employee clean-note and on-time percentages by payer',
+        caption: 'The supervisor view: clean-note and on-time rates per employee, so a bad note is caught internally.',
+        kind: 'wide',
+        width: 1100,
+        height: 688,
+      },
+    ],
+
     stack: [
       'Next.js 16',
       'React 19',
@@ -174,6 +281,8 @@ export const projects: Project[] = [
       { value: '100/100', label: 'sampled patient-months with deficient notes' },
       { value: '24-48h', label: 'documentation window the product is designed around' },
     ],
+    mediaNote:
+      'Captured from the product walkthrough, recorded with the interface in Spanish — Notewell ships bilingual (EN/ES). All data shown is synthetic.',
     featured: true,
     disclosure:
       'Built and demoed against synthetic data only. No real protected health information touches the system until a business associate agreement is in place, and the product makes no compliance claim it cannot evidence.',

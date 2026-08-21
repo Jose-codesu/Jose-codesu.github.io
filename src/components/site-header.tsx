@@ -23,7 +23,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 border-b transition-colors duration-200',
+        'sticky top-0 z-40 border-b transition-colors duration-200 print:hidden',
         scrolled ? 'border-line bg-bg/80 backdrop-blur-md' : 'border-transparent bg-transparent',
       )}
     >

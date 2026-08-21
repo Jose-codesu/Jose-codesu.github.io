@@ -33,6 +33,17 @@ export interface Section {
   body: string[];
 }
 
+export interface Media {
+  src: string;
+  /** Required: describe what the screen shows, not that it is a screenshot. */
+  alt: string;
+  caption?: string;
+  /** 'phone' renders in a device-shaped card; 'wide' spans the content column. */
+  kind: 'phone' | 'wide';
+  width: number;
+  height: number;
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -44,6 +55,12 @@ export interface Project {
   status: Status;
   /** What you actually did. "Solo — product, design, engineering." */
   role: string;
+  /** Square app icon in /public/media/icons. Falls back to a monogram. */
+  icon?: string;
+  /** Screenshots. Order matters; the first one leads the gallery. */
+  media?: Media[];
+  /** One line under the gallery for context a caption cannot carry. */
+  mediaNote?: string;
   platform: string;
   stack: string[];
   links?: ProjectLink[];
@@ -112,4 +129,20 @@ export interface LogEntry {
   body: string;
   tag?: 'ship' | 'learn' | 'write' | 'milestone';
   href?: string;
+}
+
+export type NoteBlock =
+  | { type: 'p' | 'h2' | 'quote'; text: string }
+  | { type: 'list'; items: string[] }
+  | { type: 'code'; code: string; lang?: string };
+
+export interface Note {
+  slug: string;
+  title: string;
+  /** ISO date. Sorted newest first automatically. */
+  date: string;
+  summary: string;
+  tags?: string[];
+  draft?: boolean;
+  body: NoteBlock[];
 }

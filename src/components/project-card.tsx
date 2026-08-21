@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Project } from '@/content/types';
 import { StatusBadge } from './ui/status-badge';
+import { ProjectIcon } from './project-icon';
 import { ArrowRight } from './ui/arrow';
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -15,10 +16,13 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div>
-        <h3 className="font-display text-[28px] leading-tight tracking-tight sm:text-[32px]">
-          {project.name}
-        </h3>
-        <p className="mt-1 text-[15px] text-muted">{project.tagline}</p>
+        <div className="flex items-center gap-3">
+          <ProjectIcon project={project} size={40} />
+          <h3 className="font-display text-[28px] leading-tight tracking-tight sm:text-[32px]">
+            {project.name}
+          </h3>
+        </div>
+        <p className="mt-2 text-[15px] text-muted">{project.tagline}</p>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fg/85">{project.summary}</p>
 
         <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5">

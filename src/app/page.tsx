@@ -6,14 +6,16 @@ import { LogList } from '@/components/log-list';
 import { StackGrid } from '@/components/stack-grid';
 import { Reveal } from '@/components/reveal';
 import { Emphasis } from '@/components/emphasis';
+import { RichText } from '@/components/rich-text';
 import { ButtonLink } from '@/components/ui/button';
 import { CopyEmail } from '@/components/copy-email';
 import { ArrowRight, ArrowUpRight } from '@/components/ui/arrow';
 import { site } from '@/content/site';
 import { featuredProjects } from '@/content/projects';
 import { sortedLog } from '@/content/log';
+import { publishedNotes } from '@/content/notes';
 import { visibleCertifications, education } from '@/content/credentials';
-import { monthYear } from '@/lib/format';
+import { longDate, monthYear } from '@/lib/format';
 
 export default function HomePage() {
   const certification = visibleCertifications[0];
@@ -104,6 +106,39 @@ export default function HomePage() {
       >
         <LogList entries={sortedLog.slice(0, 3)} />
       </Section>
+
+      {/* ---- Notes --------------------------------------------------------
+          Only rendered once something is published — see content/notes.ts. */}
+      {publishedNotes.length > 0 && (
+        <Section
+          eyebrow="Notes"
+          title="Things worth writing down"
+          description="Write-ups on the problems that took the longest to solve."
+          href="/notes"
+          hrefLabel="All notes"
+        >
+          <ul className="mt-2">
+            {publishedNotes.slice(0, 2).map((note, index) => (
+              <Reveal as="li" key={note.slug} delay={index * 50} className="border-b border-line">
+                <Link
+                  href={`/notes/${note.slug}`}
+                  className="hover-lift hover-arrow card-press pressable -mx-4 grid gap-x-8 gap-y-2 rounded-xl border border-transparent px-4 py-7 hover:border-line hover:bg-panel sm:grid-cols-[9rem_1fr]"
+                >
+                  <time dateTime={note.date} className="font-mono text-[12px] text-faint">
+                    {longDate(note.date)}
+                  </time>
+                  <div>
+                    <h3 className="text-[17px] font-medium tracking-tight">{note.title}</h3>
+                    <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-muted">
+                      <RichText text={note.summary} />
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </ul>
+        </Section>
+      )}
 
       {/* ---- Credentials ------------------------------------------------- */}
       <Section

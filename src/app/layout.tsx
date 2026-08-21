@@ -33,15 +33,18 @@ export const metadata: Metadata = {
     siteName: site.seo.title,
     title: site.seo.title,
     description: site.seo.description,
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: `${site.name} — ${site.role}` }],
+    images: [{ url: '/og/default.png', width: 1200, height: 630, alt: `${site.name} — ${site.role}` }],
   },
   twitter: {
     card: 'summary_large_image',
     title: site.seo.title,
     description: site.seo.description,
-    images: ['/og.png'],
+    images: ['/og/default.png'],
   },
-  alternates: { canonical: site.url },
+  alternates: {
+    canonical: site.url,
+    types: { 'application/rss+xml': [{ url: '/feed.xml', title: `${site.name} — updates` }] },
+  },
   robots: { index: true, follow: true },
 };
 

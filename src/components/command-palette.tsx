@@ -108,10 +108,11 @@ export function CommandPalette() {
 
           <Group heading="Actions">
             <Item onSelect={() => run(copyEmail)}>Copy email address</Item>
+            <Item onSelect={() => run(() => router.push('/resume'))}>View résumé</Item>
             <Item
               onSelect={() => run(() => window.open(site.resumePath, '_blank', 'noopener,noreferrer'))}
             >
-              Open résumé (PDF)
+              Download résumé (PDF)
             </Item>
             <Item onSelect={() => run(() => window.open(site.github, '_blank', 'noopener,noreferrer'))}>
               GitHub profile

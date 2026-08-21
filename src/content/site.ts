@@ -57,8 +57,13 @@ export const socials: SocialLink[] = [
   ...(site.linkedin ? [{ label: 'LinkedIn', href: site.linkedin, kind: 'other' as LinkKind }] : []),
 ];
 
+import { publishedNotes } from './notes';
+
+/** Notes joins the nav the moment the first one is published — see notes.ts. */
 export const nav = [
   { label: 'Work', href: '/work' },
+  ...(publishedNotes.length > 0 ? [{ label: 'Notes', href: '/notes' }] : []),
   { label: 'Credentials', href: '/credentials' },
   { label: 'About', href: '/about' },
-] as const;
+  { label: 'Résumé', href: '/resume' },
+];

@@ -5,7 +5,7 @@ import { ArrowUpRight } from './ui/arrow';
 
 export function SiteFooter() {
   return (
-    <footer className="mt-28 border-t border-line">
+    <footer className="mt-28 border-t border-line print:hidden">
       <div className="mx-auto w-full max-w-5xl px-5 py-14 sm:px-8">
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div className="max-w-xs">
@@ -58,7 +58,16 @@ export function SiteFooter() {
                     rel="noreferrer noopener"
                     className="hover-arrow inline-flex items-center gap-1 text-muted transition-colors hover:text-fg"
                   >
-                    Résumé
+                    Résumé (PDF)
+                    <ArrowUpRight className="opacity-60" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/feed.xml"
+                    className="hover-arrow inline-flex items-center gap-1 text-muted transition-colors hover:text-fg"
+                  >
+                    RSS
                     <ArrowUpRight className="opacity-60" />
                   </a>
                 </li>

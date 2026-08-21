@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Container } from '@/components/ui/container';
-import { ProjectCard } from '@/components/project-card';
 import { Reveal } from '@/components/reveal';
+import { WorkList } from '@/components/work-list';
 import { visibleProjects } from '@/content/projects';
+import { stackFacets } from '@/lib/evidence';
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -26,13 +27,7 @@ export default function WorkPage() {
         </Reveal>
       </header>
 
-      <div className="divide-y divide-line">
-        {visibleProjects.map((project, index) => (
-          <Reveal key={project.slug} delay={index * 50}>
-            <ProjectCard project={project} />
-          </Reveal>
-        ))}
-      </div>
+      <WorkList projects={visibleProjects} facets={stackFacets()} />
     </Container>
   );
 }

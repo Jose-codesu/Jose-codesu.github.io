@@ -5,3 +5,4 @@ export * from './credentials';
 export * from './experience';
 export * from './stack';
 export * from './log';
+export * from './notes';

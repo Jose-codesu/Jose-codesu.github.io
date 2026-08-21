@@ -195,3 +195,103 @@
     filter: blur(0);
   }
 }
+
+/* ---- Lightbox -----------------------------------------------------------
+   A modal keeps `transform-origin: center` (it is not anchored to a trigger),
+   scales from 0.96 rather than 0, and stays under 300ms. `allow-discrete`
+   is what lets a <dialog> animate on the way out as well as in.            */
+dialog.lightbox {
+  opacity: 0;
+  transform: scale(0.96);
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out),
+    overlay 200ms allow-discrete,
+    display 200ms allow-discrete;
+}
+
+dialog.lightbox[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  dialog.lightbox[open] {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+dialog.lightbox::backdrop {
+  opacity: 0;
+  transition:
+    opacity 200ms var(--ease-out),
+    overlay 200ms allow-discrete,
+    display 200ms allow-discrete;
+}
+
+dialog.lightbox[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog.lightbox[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.lightbox,
+  dialog.lightbox[open] {
+    transform: none;
+  }
+
+  @starting-style {
+    dialog.lightbox[open] {
+      transform: none;
+    }
+  }
+}
+
+/* The page must not scroll behind an open lightbox. */
+body:has(dialog.lightbox[open]) {
+  overflow: hidden;
+}
+
+/* ---- Print --------------------------------------------------------------
+   /resume is meant to be saved as a PDF. Force the light palette (printing
+   from dark mode would otherwise burn a page of ink), drop the chrome, and
+   let the browser paginate without splitting a section in half.           */
+@media print {
+  :root,
+  .dark {
+    --color-bg: #ffffff;
+    --color-panel: #ffffff;
+    --color-fg: #111111;
+    --color-muted: #333333;
+    --color-faint: #555555;
+    --color-line: #cccccc;
+    --color-line-strong: #999999;
+    --color-accent: #111111;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* Reveal-on-scroll never runs during printing — make sure nothing prints
+     invisible because it was below the fold. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

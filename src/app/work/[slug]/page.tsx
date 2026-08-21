@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/container';
+import { ProjectGallery } from '@/components/project-gallery';
+import { ProjectIcon } from '@/components/project-icon';
 import { Reveal } from '@/components/reveal';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { ButtonLink } from '@/components/ui/button';
@@ -33,7 +35,10 @@ export async function generateMetadata({
       title: `${project.name} — ${site.name}`,
       description: project.summary,
       type: 'article',
+      // Generated per project by scripts/generate-og.mjs.
+      images: [{ url: `/og/work-${project.slug}.png`, width: 1200, height: 630, alt: project.tagline }],
     },
+    twitter: { card: 'summary_large_image', images: [`/og/work-${project.slug}.png`] },
   };
 }
 
@@ -64,9 +69,12 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <StatusBadge status={project.status} />
           </div>
 
-          <h1 className="mt-4 font-display text-[clamp(2.75rem,8vw,4.5rem)] leading-[0.98] tracking-tight">
-            {project.name}
-          </h1>
+          <div className="mt-4 flex items-center gap-4">
+            <ProjectIcon project={project} size={56} />
+            <h1 className="font-display text-[clamp(2.75rem,8vw,4.5rem)] leading-[0.98] tracking-tight">
+              {project.name}
+            </h1>
+          </div>
           <p className="mt-3 max-w-2xl text-[19px] leading-snug text-muted">{project.tagline}</p>
         </Reveal>
 
@@ -85,6 +93,20 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           </Reveal>
         )}
       </header>
+
+      {/* ---- Screens -------------------------------------------------------
+          Placed before the write-up on purpose: a reader deciding whether to
+          spend three minutes here should see the product first.            */}
+      {project.media && project.media.length > 0 && (
+        <Reveal className="mb-14">
+          <ProjectGallery media={project.media} />
+          {project.mediaNote && (
+            <p className="mt-6 max-w-2xl text-[13px] leading-relaxed text-faint">
+              {project.mediaNote}
+            </p>
+          )}
+        </Reveal>
+      )}
 
       {/* ---- Meta ---------------------------------------------------------- */}
       <Reveal>
