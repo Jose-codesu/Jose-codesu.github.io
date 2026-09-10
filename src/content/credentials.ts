@@ -10,7 +10,6 @@ export const certifications: Certification[] = [
     issuer: 'Google · Coursera',
     issued: '2025-01-15',
     credentialId: 'L1C473ZFU50D',
-    // TODO: paste the Coursera credential URL here to turn the ID into a link.
     verifyUrl: '',
     status: 'completed',
     summary:

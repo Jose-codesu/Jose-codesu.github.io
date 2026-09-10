@@ -8,7 +8,7 @@ export const site = {
   location: 'Miami, FL',
   email: 'xeezzalejandro1805@icloud.com',
   github: 'https://github.com/Jose-codesu',
-  /** TODO: add your LinkedIn URL here and it appears in the header, footer and ⌘K. */
+  /** Optional. When set, LinkedIn appears in the header, footer and ⌘K. */
   linkedin: '',
   url: 'https://jose-codesu.github.io',
   resumePath: '/Jose-Lavin-Resume.pdf',

@@ -71,8 +71,6 @@ export const projects: Project[] = [
       'Zero third-party Swift packages, keys in the Keychain, and a measured eval bank behind the accuracy claims.',
     ],
     featured: true,
-    // Repo is private, so no link here yet. Add a TestFlight or App Store link
-    // when the beta opens up: { label: 'TestFlight', href: '…', kind: 'testflight' }
     problem: [
       'Traditional trackers lose people in the first week, and it is never the calorie math that does it — it is the friction. A database search, a portion dropdown, a multi-field capture screen, repeated three times a day.',
       'The job to be done is not “log food”. It is “stay aware of what I eat without it feeling like work” — at a table, in a supermarket, at a restaurant, with a phone in one hand and a few seconds of patience.',
@@ -344,21 +342,6 @@ export const projects: Project[] = [
         ],
       },
     ],
-  },
-  {
-    // Draft entries stay in the file and out of the site. Flip `draft` to false
-    // when you are ready to show it.
-    slug: 'metro-performance-tracker',
-    name: 'Metro Performance Tracker',
-    tagline: 'An internal dashboard for the store I manage',
-    summary:
-      'A TypeScript tool built for my own retail team to track daily performance against goals — the first thing I built to remove a spreadsheet from my actual job.',
-    year: '2026',
-    status: 'building',
-    role: 'Solo — engineering',
-    platform: 'Web',
-    stack: ['TypeScript', 'React'],
-    draft: true,
   },
 ];
 

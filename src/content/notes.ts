@@ -456,24 +456,6 @@ export function cloneInvolvedIds(notes: Note[], threshold = CLONE_WARN): Set<str
       },
     ],
   },
-  {
-    slug: 'template',
-    title: 'The title goes here, and it should make a claim',
-    date: '2026-08-20',
-    summary:
-      'One or two sentences that say what the reader gets. This is what shows up on the index, in the feed, and in the link preview.',
-    tags: ['template'],
-    draft: true,
-    body: [
-      { type: 'p', text: 'Open with the concrete situation. What were you building, what broke, what did you expect to happen.' },
-      { type: 'h2', text: 'What actually happened' },
-      { type: 'p', text: 'The specifics — error messages, timings, the wrong assumption. Specifics are what make a technical post worth reading.' },
-      { type: 'code', code: "const velocity = Math.abs(swipeAmount) / timeTaken;\nif (velocity > 0.11) dismiss();", lang: 'ts' },
-      { type: 'h2', text: 'What it turned out to be' },
-      { type: 'list', items: ['The cause, stated plainly.', 'The fix.', 'The thing you now check first.'] },
-      { type: 'quote', text: 'End on the rule you would give someone about to hit the same wall.' },
-    ],
-  },
 ];
 
 export const publishedNotes = notes
