@@ -30,6 +30,9 @@ export function Reveal({
     if (!node) return;
 
     // Anything already on screen at mount should not wait for a scroll event.
+    // The root reaches far above the viewport: a fast scroll or a jump can carry
+    // content straight past the fold without it ever intersecting the viewport,
+    // and an observer bounded by the viewport would leave it invisible for good.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -37,7 +40,7 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.05 },
+      { rootMargin: '100000px 0px -10% 0px', threshold: 0.05 },
     );
 
     observer.observe(node);

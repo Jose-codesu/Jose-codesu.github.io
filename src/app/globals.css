@@ -130,11 +130,15 @@
    A CSS animation, not a JS one: it runs off the main thread, so it stays
    smooth while the page is still hydrating. The observer only flips an
    attribute. 8px of travel — enough to read as motion, not as a slide.    */
-[data-reveal] {
-  opacity: 0;
+/* Hidden only while scripts run: without JavaScript nothing would ever flip the
+   attribute, and the content has to stay readable. */
+@media (scripting: enabled) {
+  [data-reveal] {
+    opacity: 0;
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
   [data-reveal] {
     transform: translateY(8px);
   }
